@@ -26,7 +26,7 @@ class Game:
         return self.ready
 
     def bothWent(self):
-        return self.p1Went
+        return self.p1Went and self.p2Went
 
     def winner(self):
         p1 = self.moves[0].upper()[0]
