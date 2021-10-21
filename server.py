@@ -1,6 +1,6 @@
 import socket
 from _thread import *
-
+import pickle
 from game import Game
 
 server = "192.168.1.74"
@@ -22,7 +22,25 @@ idCount = 0
 
 
 def thread_client(conn, player, gameId):
-    pass
+    global idCount
+    conn.send(str.encode(str(p)))
+
+    reply = ""
+    while True:
+        data = conn.recv(4096).decode()
+
+        if gameId in games:
+            game = games[gameId]
+
+            if not data:
+                break
+            else:
+                if data == "reset":
+                    game.reset()
+                elif data != "get":
+                    game.play(p, data)
+                reply = game
+                conn.sendall(pickle.dumps(reply))
 
 
 while True:
