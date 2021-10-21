@@ -123,9 +123,7 @@ def main():
 
             win.blit(text, (width / 2 - text.get_width() / 2, height / 2 - text.get_height() / 2))
             pygame.display.update()
-            print("hi")
             pygame.time.delay(2000)
-            print("hi")
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

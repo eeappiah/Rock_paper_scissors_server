@@ -22,9 +22,9 @@ games = {}
 idCount = 0
 
 
-def threaded_client(conn, p, gameId):
+def threaded_client(conn, player, gameId):
     global idCount
-    conn.send(str.encode(str(p)))
+    conn.send(str.encode(str(player)))
 
     reply = ""
     while True:
@@ -40,7 +40,7 @@ def threaded_client(conn, p, gameId):
                     if data == "reset":
                         game.resetWent()
                     elif data != "get":
-                        game.play(p, data)
+                        game.play(player, data)
 
                     conn.sendall(pickle.dumps(game))
             else:
