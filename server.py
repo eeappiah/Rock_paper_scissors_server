@@ -40,9 +40,9 @@ def thread_client(conn, player, gameId):
                     if data == "reset":
                         game.resetWent()
                     elif data != "get":
-                        game.play(p, data)
+                        game.play(player, data)
                     reply = game
-                    conn.sendall(pickle.dumps(reply))
+                    conn.sendall(pickle.dumps(game))
             else:
                 break
         except:
