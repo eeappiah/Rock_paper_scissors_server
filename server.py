@@ -4,7 +4,7 @@ from _thread import *
 
 from game import Game
 
-server = "10.11.250.207"
+server = "192.168.1.74"
 port = 5555
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
